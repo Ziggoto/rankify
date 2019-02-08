@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 
-import { authUrl } from './Config';
 import './App.css';
 import 'antd/dist/antd.css';
 
 class App extends Component {
   openSpotifyPopup() {
-    window.location.assign(authUrl);
+    window.location.assign('http://localhost:8888/login');
   }
 
   render() {
