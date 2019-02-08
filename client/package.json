@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8888",
+  "proxy": "http://ziggoto.com:8888",
   "eslintConfig": {
     "extends": "react-app"
   },

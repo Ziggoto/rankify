@@ -9,8 +9,7 @@ const setTopArtists = (artists) => ({
 
 export const fetchTopArtists = () => dispatch => {
   dispatch({ type: 'FETCH_TOP_ARTIST_REQUESTED' });
-  getFetchTopArtistRequest().then(response => {
-    dispatch(setTopArtists(response.json())
-    );
+  getFetchTopArtistRequest().then(data => {
+    dispatch(setTopArtists(data.items));
   })
 };

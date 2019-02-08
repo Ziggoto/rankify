@@ -1,10 +1,9 @@
 const axios = require('axios');
+const cors = require('cors');
 const express = require('express');
 const path = require('path');
 const qs = require('qs');
-// const localStorage = require('node-localstorage').LocalStorage;
 
-// const storage = new localStorate('./storage');
 const port = process.env.PORT || 8888;
 
 const scope = 'user-top-read';
@@ -17,7 +16,9 @@ const params = {};
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app
+  .use(express.static(path.join(__dirname, 'client/build')))
+  .use(cors());
 
 app.get('/login', (req, res) => {
   res.redirect('https://accounts.spotify.com/authorize?' +
