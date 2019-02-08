@@ -20,5 +20,5 @@ export const fetchAccessToken = (code) => {
     client_secret: clientSecret
   };
 
-  return post('https://accounts.spotify.com/api/token', payload);
+  return post('/api/token', payload);
 }

@@ -16,7 +16,6 @@ import mySaga from './Sagas';
 
 import './index.css';
 import App from './App';
-import CodeRoute from './CodeRoute';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -51,7 +50,6 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <Switch>
           <Route exact path="/" render={() => (<App />)} />
-          <Route exact path="/callback" render={() => (<CodeRoute />)} />
           <Route render={() => (<App />)} />
         </Switch>
       </ConnectedRouter>
