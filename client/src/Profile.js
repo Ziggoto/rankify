@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 
-import { authUrl } from './Config';
 import './App.css';
 import 'antd/dist/antd.css';
 
-class App extends Component {
-  openSpotifyPopup() {
-    window.location.assign(authUrl);
+class Profile extends Component {
+  componentDidMount() {
+    console.log('I have to make a request');
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <Button onClick={this.openSpotifyPopup}>Connect to Spotify</Button>
+          <p>Should show ranking list</p>
         </header>
       </div>
     );
@@ -26,4 +25,4 @@ const mapStateToProps = state => ({});
 
 const mapDispatchToProps = dispatch => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

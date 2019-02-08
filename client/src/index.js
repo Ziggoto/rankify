@@ -16,6 +16,7 @@ import mySaga from './Sagas';
 
 import './index.css';
 import App from './App';
+import Profile from './Profile';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -50,6 +51,7 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <Switch>
           <Route exact path="/" render={() => (<App />)} />
+          <Route exact path="/profile" render={() => (<Profile />)} />
           <Route render={() => (<App />)} />
         </Switch>
       </ConnectedRouter>
