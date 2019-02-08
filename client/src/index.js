@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import immutableTransform from 'redux-persist-transform-immutable';
 import storage from 'redux-persist/lib/storage';
+import thunk from 'redux-thunk';
 import { createBrowserHistory } from 'history';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -33,6 +34,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   persistedReducer,
   composeEnhancers(
+    applyMiddleware(thunk),
     applyMiddleware(routerMiddleware(history)),
   )
 );

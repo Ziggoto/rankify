@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'antd';
+
+import { fetchTopArtists } from './Actions';
 
 import './App.css';
 import 'antd/dist/antd.css';
 
 class Profile extends Component {
   componentDidMount() {
-    console.log('I have to make a request');
+    const { fetchTopArtistsAction } = this.props;
+    fetchTopArtistsAction();
   }
 
   render() {
@@ -21,8 +23,12 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  topArtists: state.user.get('topArtists')
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  fetchTopArtistsAction: () => dispatch(fetchTopArtists())
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

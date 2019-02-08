@@ -1,17 +1,15 @@
 import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
 import { Map } from 'immutable';
-import { SAVE_SPOTIFY_CODE_ACTION } from './Actions';
 
-const configState = Map({});
+import { SET_TOP_ARTIST_ACTION } from './Actions';
 
-const configReducer = (state = configState, action) => {
+const userState = Map({});
+
+const userReducer = (state = userState, action) => {
   switch (action.type) {
-    // case 'CONNECT_SPOTIFY_ACTION': {
-    //   return state.set('bar', 'Connecting')
-    // }
-    case SAVE_SPOTIFY_CODE_ACTION:
-      return state.set('code', action.payload);
+    case SET_TOP_ARTIST_ACTION:
+      return state.set('topArtists', action.payload);
     default:
       return state;
   }
@@ -19,5 +17,5 @@ const configReducer = (state = configState, action) => {
 
 export default (history) => combineReducers({
   router: connectRouter(history),
-  config: configReducer
+  user: userReducer
 });

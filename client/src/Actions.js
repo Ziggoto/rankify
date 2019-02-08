@@ -1,24 +1,16 @@
-export const FETCH_ACCESS_TOKEN = 'FETCH_ACCESS_TOKEN';
-export const SAVE_ACCESS_TOKEN = 'SAVE_ACCESS_TOKEN';
-export const SAVE_SPOTIFY_CODE_ACTION = 'SAVE_SPOTIFY_CODE';
+import { getFetchTopArtistRequest } from './Fetch';
 
-export const saveSpotifyCode = (code) => (
-  {
-    type: SAVE_SPOTIFY_CODE_ACTION,
-    payload: code
-  }
-);
+export const SET_TOP_ARTIST_ACTION = 'SET_TOP_ARTISTS';
 
-export const fetchAccessToken = (code) => (
-  {
-    type: FETCH_ACCESS_TOKEN,
-    payload: code
-  }
-);
+const setTopArtists = (artists) => ({
+  type: SET_TOP_ARTIST_ACTION,
+  payload: artists
+});
 
-export const saveAccessTokens = (tokens) => (
-  {
-    type: SAVE_ACCESS_TOKEN,
-    payload: tokens
-  }
-);
+export const fetchTopArtists = () => dispatch => {
+  dispatch({ type: 'FETCH_TOP_ARTIST_REQUESTED' });
+  getFetchTopArtistRequest().then(response => {
+    dispatch(setTopArtists(response.json())
+    );
+  })
+};
