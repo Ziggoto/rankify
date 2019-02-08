@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createSagaMiddleware from 'redux-saga';
 import immutableTransform from 'redux-persist-transform-immutable';
 import storage from 'redux-persist/lib/storage';
 import { createBrowserHistory } from 'history';
@@ -12,7 +11,6 @@ import { Route, Switch } from 'react-router'
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 import createRootReducer from './Reducers';
-import mySaga from './Sagas';
 
 import './index.css';
 import App from './App';
@@ -30,18 +28,14 @@ const persistConfig = {
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   persistedReducer,
   composeEnhancers(
-    applyMiddleware(sagaMiddleware),
     applyMiddleware(routerMiddleware(history)),
   )
 );
-
-sagaMiddleware.run(mySaga);
 
 const persistor = persistStore(store);
 
