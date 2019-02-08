@@ -5,6 +5,12 @@ import { Button } from 'antd';
 import './App.css';
 import 'antd/dist/antd.css';
 
+const testStyle = {
+  backgroundColor: '#1ED760',
+  border: '0px',
+  height: '50px',
+}
+
 class App extends Component {
   openSpotifyPopup() {
     window.location.assign('http://localhost:8888/login');
@@ -14,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Button onClick={this.openSpotifyPopup}>Connect to Spotify</Button>
+          <Button type="primary" size="large" style={testStyle} onClick={this.openSpotifyPopup}>Connect to Spotify</Button>
         </header>
       </div>
     );

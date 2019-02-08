@@ -4,21 +4,35 @@ import { List, Layout } from 'antd';
 
 import { fetchTopArtists } from './Actions';
 
-// import './App.css';
 import 'antd/dist/antd.css';
+import './App.css';
 
-const { Content, Sider } = Layout;
+const { Content } = Layout;
+
+const styles = {
+  item: {
+    backgroundColor: '#282c34',
+    borderColor: '#333842'
+  },
+  meta: {
+    color: '#fff'
+  }
+};
 
 class Profile extends Component {
-  renderRow = (artist) => {
+  renderRow = (artist, index) => {
     return (
-      <List.Item
-      >
-        <img width={160} alt='logo' src={artist.images[2].url} />
-        <List.Item.Meta
-          title={artist.name}
-          description={artist.genres.join(', ')}
-        />
+      <List.Item style={styles.item}>
+        <div className="customRow">
+          <img width={160} alt='logo' src={artist.images[2].url} />
+          <div>
+            <div className="customRow__title">
+              <span className="customRow__index">{index+1}º</span>
+              {artist.name}
+            </div>
+            <div>{artist.genres.join(', ')}</div>
+          </div>
+        </div>
       </List.Item>
     );
   };

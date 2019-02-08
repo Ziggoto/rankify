@@ -12,3 +12,23 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.customRow {
+  display: flex;
+  color: #fff;
+}
+
+.customRow img {
+  margin-right: 20px;
+}
+
+.customRow__title {
+  color: #dadde3;
+  font-size: 1.2rem;
+  padding-top: 5px;
+}
+
+.customRow__index {
+  font-size: 1.5rem;
+  padding-right: 10px;
+}
