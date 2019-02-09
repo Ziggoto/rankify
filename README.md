@@ -1,6 +1,8 @@
 # Rankify
 Rankify is a didatic React application which shows your top artists on Spotify. Check the live demo [here](http://nautilus.fabiotheophilo.com)
 
+![demo](demo.png)
+
 ## Installing
 
 ###  Easier way: Docker
