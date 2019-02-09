@@ -25,14 +25,33 @@ const styles = {
   button: {
     backgroundColor: '#14cc60',
     border: '1px solid #09a129',
+  },
+  title: {
+    color: '#fff',
+    fontSize: '1.4rem',
+    paddingLeft: '10px',
+    fontWeight: 'bold',
+    marginTop: '10px'
   }
 };
 
 class Profile extends Component {
   fetchTopArtist = (timeRange) => () => {
     const { fetchTopArtistsAction } = this.props;
-    // console.log('timeRange: ', timeRange);
     fetchTopArtistsAction(timeRange);
+  }
+
+  translateTimeRange = () => {
+    const { timeRange } = this.props;
+
+    switch(timeRange) {
+      case 'medium_term':
+        return 'last 6 months';
+      case 'long_term':
+        return 'all time';
+      default:
+        return 'last month';
+    }
   }
 
   renderRow = (artist, index) => {
@@ -68,6 +87,9 @@ class Profile extends Component {
               <Button type="primary" size="large" style={styles.button} onClick={this.fetchTopArtist('long_term')}>All time</Button>
             </ButtonGroup>
           </div>
+          <div style={styles.title}>
+            Showing your {this.translateTimeRange()} top artists
+          </div>
           <List
             dataSource={this.props.topArtists}
             renderItem={this.renderRow}
@@ -79,7 +101,8 @@ class Profile extends Component {
 }
 
 const mapStateToProps = state => ({
-  topArtists: state.user.get('topArtists')
+  topArtists: state.user.get('topArtists'),
+  timeRange: state.user.get('timeRange')
 });
 
 const mapDispatchToProps = dispatch => ({
