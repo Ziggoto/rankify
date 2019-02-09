@@ -13,7 +13,7 @@ const testStyle = {
 
 class App extends Component {
   openSpotifyPopup() {
-    window.location.assign('http://localhost:8888/login');
+    window.location.assign('http://nautilus.fabiotheophilo.com/login');
   }
 
   render() {

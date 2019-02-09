@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://ziggoto.com:8888",
+  "proxy": "http://nautilus.fabiotheophilo.com",
   "eslintConfig": {
     "extends": "react-app"
   },
