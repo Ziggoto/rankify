@@ -58,7 +58,10 @@ app.get('/callback', (req, res) => {
 });
 
 app.get('/api/top/artists', (req, res) => {
-  axios.get('https://api.spotify.com/v1/me/top/artists', {
+  const time_range = req.query.time_range || null;
+  const target_url = 'https://api.spotify.com/v1/me/top/artists' + (time_range? '?time_range='+time_range : '');
+
+  axios.get(target_url, {
     headers: {
       'Authorization': 'Bearer ' + params.access_token
     }

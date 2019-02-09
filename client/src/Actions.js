@@ -7,9 +7,9 @@ const setTopArtists = (artists) => ({
   payload: artists
 });
 
-export const fetchTopArtists = () => dispatch => {
+export const fetchTopArtists = (timeRange) => dispatch => {
   dispatch({ type: 'FETCH_TOP_ARTIST_REQUESTED' });
-  getFetchTopArtistRequest().then(data => {
+  getFetchTopArtistRequest(timeRange).then(data => {
     dispatch(setTopArtists(data.items));
   })
 };
