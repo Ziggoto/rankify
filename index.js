@@ -4,12 +4,14 @@ const express = require('express');
 const path = require('path');
 const qs = require('qs');
 
+require('dotenv').config()
+
 const port = process.env.PORT || 8888;
 
-const scope = 'user-top-read';
-const client_id = '982f3121f1964b189015394089cfe66b';
-const client_secret = '08b4ec7f25a2465aab9b0f3e4133a18e';
-const redirect_uri = 'http://ziggoto.com:'+port+'/callback';
+const scope = process.env.SCOPE;
+const client_id = process.env.CLIENT_ID;
+const client_secret = process.env.CLIENT_SECRET;
+const redirect_uri = process.env.REDIRECT_URI;
 
 // Just to save authorization variables
 const params = {};
